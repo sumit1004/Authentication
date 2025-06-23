@@ -1,0 +1,235 @@
+:root {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --bg: #23272f;
+    --sidebar-width: 320px;
+    --sidebar-width-mobile: 70vw;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fa;
+    color: #23272f;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 60px;
+    background: var(--bg);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.logo-text {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Menu Icon */
+.menu-icon {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    background: transparent;
+    border: none;
+    outline: none;
+
+}
+.menu-icon span {
+    display: block;
+    height: 4px;
+    width: 32px;
+    background: #fff;
+    margin: 3px 0;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: var(--sidebar-width);
+    max-width: 100vw;
+    height: 100vh;
+    background: var(--bg);
+    color: #fff;
+    box-shadow: -2px 0 16px rgba(0,0,0,0.15);
+    transition: right 0.35s cubic-bezier(.77,0,.18,1);
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+}
+.sidebar.active {
+    right: 0;
+}
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.2rem 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid #2d323c;
+    position: relative;
+}
+.close-sidebar {
+    position: absolute;
+    right: 1.2rem;
+    top: 1.1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 40;
+    padding: 0;
+    line-height: 1;
+}
+.sidebar-links {
+    list-style: none;
+    padding: 1.5rem 0 0 0;
+    margin: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.sidebar-links li {
+    width: 100%;
+}
+.sidebar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.15rem;
+    padding: 0.9rem 2rem;
+    display: block;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.sidebar-links a:hover,
+.sidebar-links a:focus {
+    background: #2d323c;
+    color: var(--primary);
+}
+
+/* Sidebar Sign In Button */
+.sidebar-signin-btn {
+    margin: 1.5rem 2rem 2rem 2rem;
+    width: calc(100% - 4rem);
+    padding: 0.9rem 0;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    outline: none;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+}
+.sidebar-signin-btn:hover,
+.sidebar-signin-btn:focus {
+    background: var(--primary-dark);
+}
+
+/* Clerk Auth Area */
+#clerk-auth {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        position: relative;
+    left: 20px;
+    bottom: 20px;
+}
+
+/* Overlay */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 20;
+}
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Main Content */
+.main-content {
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.hero {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--bg);
+    margin-bottom: 1rem;
+}
+.hero .highlight {
+    color: var(--primary);
+}
+.hero p {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 2rem;
+}
+

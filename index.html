@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeFlash Navbar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">&#9889;</span>
+            <span class="logo-text">CodeFlash</span>
+        </div>
+        <div id="menu-icon" class="menu-icon" aria-label="Open menu" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <span class="logo-icon">&#9889;</span>
+            <span class="logo-text">CodeFlash</span>
+            <button id="close-sidebar" class="close-sidebar" aria-label="Close menu">&times;</button>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <button id="custom-signin-btn" class="sidebar-signin-btn">Sign In</button>
+        <div id="clerk-auth" style="display:none;"></div>
+    </aside>
+    <main class="main-content">
+        <section class="hero">
+            <h1>Welcome to <span class="highlight">CodeFlash</span></h1>
+            <p>Lightning fast code collaboration and sharing. Sign in to get started!</p>
+        </section>
+        
+    </main>
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="pk_test_c2F2ZWQtbW9sZS05OC5jbGVyay5hY2NvdW50cy5kZXYk"
+      src="https://saved-mole-98.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+      type="text/javascript"
+    ></script>
+    <script src="script.js"></script>
+</body>
+</html>
